@@ -1,0 +1,9 @@
+/.gradle
+/.idea
+/build
+/.gradle/wrapper
+*.bat
+*.cmd
+*.btm
+*.log
+*.class
