@@ -8,7 +8,7 @@ import org.openqa.selenium.Keys;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class PracticeForm {
+public class PracticeFormTest {
     @Test
     void fillingAndCheckingFrom() {
         Configuration.pageLoadStrategy = "eager";
@@ -33,8 +33,10 @@ public class PracticeForm {
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#hobbiesWrapper").$(byText("Reading")).click();
         $("#currentAddress").setValue("Vladimir city");
-        $("#stateCity-wrapper input#react-select-3-input").setValue("Uttar Pradesh").pressEnter();
-        $("#stateCity-wrapper input#react-select-4-input").setValue("Agra").pressEnter();
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText("Uttar Pradesh")).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Agra")).click();
         $("#submit").click();
 
         //проверка формы
