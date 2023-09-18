@@ -1,18 +1,12 @@
 package ui_tests;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
-<<<<<<< HEAD
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withTagAndText;
-=======
->>>>>>> origin/master
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class GithubSoftAssertionsTest {
@@ -24,7 +18,6 @@ public class GithubSoftAssertionsTest {
 
         $(".search-input").click();
         $("#query-builder-test").setValue("Selenide").pressEnter();
-<<<<<<< HEAD
         $("[data-testid='results-list']").$("div", 0).$("a").click();
         $("#wiki-tab").click();
         $(".Box-title").shouldHave(text("Pages"));
@@ -44,13 +37,5 @@ public class GithubSoftAssertionsTest {
                           }
                         }
                         """));
-=======
-        $x(".//div//span//ancestor::a[@href='/selenide/selenide']").click();
-        $x(".//div[@id='repository-container-header']//li//a[@id='wiki-tab']").click();
-        $x(".//a[contains(text(),\"Soft assertions\")]").click();
-        $x(".//h4[contains(text(),\"JUnit5\")]").shouldHave(text("Using JUnit5 extend test class:"));
-        $x(".//h4[contains(text(),\"JUnit5\")]/following::span[contains(text(),\"SoftAssertsExtension\")]")
-                .shouldHave(text("SoftAssertsExtension"));
->>>>>>> origin/master
     }
 }
