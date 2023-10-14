@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import ui_tests.TestBase;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -14,8 +15,7 @@ public class TextBoxPage {
 
     public TextBoxPage openPage() {
         open("/text-box");
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        TestBase.removeBanner();
         return this;
     }
 
