@@ -37,7 +37,7 @@ public class PracticeFormTest extends TestBase {
                 .selectStateCity(state.description, city)
                 .submit();
 
-        registrationPage.checkResultRegistrationPage("Student Name", firstName + " " + lastName)
+        checkComponent.checkResultRegistrationPage("Student Name", firstName + " " + lastName)
                 .checkResultRegistrationPage("Student Email", email)
                 .checkResultRegistrationPage("Gender", gender)
                 .checkResultRegistrationPage("Mobile", phoneNumber)

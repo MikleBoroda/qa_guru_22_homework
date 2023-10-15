@@ -1,6 +1,8 @@
 package ui_tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import pages.RegistrationPage;
 import pages.TextBoxPage;
@@ -23,5 +25,10 @@ public class TestBase {
     public static void removeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
+    }
+
+    @AfterEach
+    void afterEach() {
+        Selenide.closeWebDriver();
     }
 }
