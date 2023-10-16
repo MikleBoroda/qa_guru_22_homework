@@ -2,8 +2,8 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
+import ui_tests.TestBase;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -25,10 +25,10 @@ public class RegistrationPage {
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        TestBase.removeBanner();
         return this;
     }
+
 
     public RegistrationPage setFirstName(String firstName) {
         firstNameInput.setValue(firstName);
@@ -92,11 +92,6 @@ public class RegistrationPage {
 
     public RegistrationPage submit() {
         submit.click();
-        return this;
-    }
-
-    public RegistrationPage checkResult(String key, String value) {
-        $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
         return this;
     }
 }

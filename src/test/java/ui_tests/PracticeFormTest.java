@@ -37,14 +37,14 @@ public class PracticeFormTest extends TestBase {
                 .selectStateCity(state.description, city)
                 .submit();
 
-        registrationPage.checkResult("Student Name", firstName + " " + lastName)
-                .checkResult("Student Email", email)
-                .checkResult("Gender", gender)
-                .checkResult("Mobile", phoneNumber)
-                .checkResult("Date of Birth", day + " " + month + "," + year)
-                .checkResult("Subjects", subject)
-                .checkResult("Hobbies", hobbie)
-                .checkResult("Address", currentAddress)
-                .checkResult("State and City", state.description + " " + city);
+        checkComponent.checkResultRegistrationPage("Student Name", firstName + " " + lastName)
+                .checkResultRegistrationPage("Student Email", email)
+                .checkResultRegistrationPage("Gender", gender)
+                .checkResultRegistrationPage("Mobile", phoneNumber)
+                .checkResultRegistrationPage("Date of Birth", day + " " + month + "," + year)
+                .checkResultRegistrationPage("Subjects", subject)
+                .checkResultRegistrationPage("Hobbies", hobbie)
+                .checkResultRegistrationPage("Address", currentAddress)
+                .checkResultRegistrationPage("State and City", state.description + " " + city);
     }
 }

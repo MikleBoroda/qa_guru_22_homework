@@ -3,7 +3,6 @@ package ui_tests;
 import org.junit.jupiter.api.Test;
 
 
-
 public class TextBoxTest extends TestBase {
     @Test
     void fillingTextBox() {
@@ -14,8 +13,8 @@ public class TextBoxTest extends TestBase {
                 .setPermanentAddress("Moscow")
                 .clickSubmit();
 
-        textBoxPage.checkResult("Name:", "Mikle Smith")
-                .checkResult("Email:", "Mikle@nail.ru")
-                .checkResult("Permananet Address :", "Moscow");
+        checkComponent.checkResultTextBoxPage("Name:", "Mikle Smith")
+                .checkResultTextBoxPage("Email:", "Mikle@nail.ru")
+                .checkResultTextBoxPage("Permananet Address :", "Moscow");
     }
 }

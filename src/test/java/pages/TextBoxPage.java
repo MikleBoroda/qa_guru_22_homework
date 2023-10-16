@@ -1,9 +1,8 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import ui_tests.TestBase;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxPage {
@@ -16,8 +15,7 @@ public class TextBoxPage {
 
     public TextBoxPage openPage() {
         open("/text-box");
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        TestBase.removeBanner();
         return this;
     }
 
@@ -43,11 +41,6 @@ public class TextBoxPage {
 
     public TextBoxPage clickSubmit() {
         submitButton.click();
-        return this;
-    }
-
-    public TextBoxPage checkResult(String key, String value) {
-        $("#output").$(byText(key)).shouldHave(text(value));
         return this;
     }
 }
