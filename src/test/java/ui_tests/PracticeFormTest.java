@@ -1,8 +1,13 @@
 package ui_tests;
 
 import datapages.State;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import utils.RandomUtils;
+
+import static io.qameta.allure.Allure.step;
+
 
 public class PracticeFormTest extends TestBase {
     RandomUtils randomUtils = new RandomUtils();
@@ -20,31 +25,39 @@ public class PracticeFormTest extends TestBase {
     private State state = randomUtils.randomStateCity();
     private String city = state.city();
 
-
     @Test
+    @Tag("Smoke")
+    @DisplayName("Check registration page")
     void fillingAndCheckingFrom() {
-        registrationPage.openPage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setUserEmail(email)
-                .setGenderWrapper(gender)
-                .setUserNumber(phoneNumber)
-                .setDateOfBirth(day, month, year)
-                .setSubjects(subject)
-                .upLoadPicture("PictureFirst.png")
-                .selectHobbies(hobbie)
-                .setCurrentAddress(currentAddress)
-                .selectStateCity(state.description, city)
-                .submit();
+        step("Open form", () -> {
+            registrationPage.openPage();
+        });
 
-        registrationPage.checkResult("Student Name", firstName + " " + lastName)
-                .checkResult("Student Email", email)
-                .checkResult("Gender", gender)
-                .checkResult("Mobile", phoneNumber)
-                .checkResult("Date of Birth", day + " " + month + "," + year)
-                .checkResult("Subjects", subject)
-                .checkResult("Hobbies", hobbie)
-                .checkResult("Address", currentAddress)
-                .checkResult("State and City", state.description + " " + city);
+        step("Fill form", () -> {
+            registrationPage.setFirstName(firstName)
+                    .setLastName(lastName)
+                    .setUserEmail(email)
+                    .setGenderWrapper(gender)
+                    .setUserNumber(phoneNumber)
+                    .setDateOfBirth(day, month, year)
+                    .setSubjects(subject)
+                    .upLoadPicture("PictureFirst.png")
+                    .selectHobbies(hobbie)
+                    .setCurrentAddress(currentAddress)
+                    .selectStateCity(state.description, city)
+                    .submit();
+        });
+
+        step("Check form", () -> {
+            registrationPage.checkResult("Student Name", firstName + " " + lastName)
+                    .checkResult("Student Email", email)
+                    .checkResult("Gender", gender)
+                    .checkResult("Mobile", phoneNumber)
+                    .checkResult("Date of Birth", day + " " + month + "," + year)
+                    .checkResult("Subjects", subject)
+                    .checkResult("Hobbies", hobbie)
+                    .checkResult("Address", currentAddress)
+                    .checkResult("State and City", state.description + " " + city);
+        });
     }
 }
